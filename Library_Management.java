@@ -5,7 +5,6 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-// Book class
 class Book {
     private String title;
     private String author;
@@ -44,7 +43,6 @@ class Book {
     }
 }
 
-// LibraryOperations interface
 interface LibraryOperations {
     void borrowBook(String title);
 
@@ -56,8 +54,6 @@ interface LibraryOperations {
 
     void submitBook();
 }
-
-// Library class implementing LibraryOperations
 class Library implements LibraryOperations {
     private List<Book> books = new ArrayList<>();
 
@@ -168,7 +164,6 @@ class Library implements LibraryOperations {
     }
 }
 
-// User class
 class User {
     private String name;
 
@@ -181,19 +176,16 @@ class User {
     }
 }
 
-// Library Management System with improved input validation
 public class Library_Management {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Library library = new Library();
         User user;
-
-        // Input validation for user's name
+        
         while (true) {
             System.out.print("Please enter your name: ");
             String userName = scanner.nextLine().trim();
-
-            // Ensure name is alphabetic (can include spaces) and not empty
+            
             if (!userName.isEmpty() && userName.matches("[a-zA-Z\\s]+")) {
                 user = new User(userName);
                 System.out.println("Hello, " + user.getName() + "!");
@@ -203,7 +195,6 @@ public class Library_Management {
             }
         }
 
-        // Menu loop
         while (true) {
             try {
                 System.out.println("\nMenu:");
@@ -216,7 +207,7 @@ public class Library_Management {
 
                 System.out.print("Choose an option: ");
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Consume newline
+                scanner.nextLine(); 
 
                 switch (choice) {
                     case 1:
@@ -273,7 +264,7 @@ public class Library_Management {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a valid option.");
-                scanner.nextLine(); // Clear invalid input
+                scanner.nextLine(); 
             }
         }
     }
